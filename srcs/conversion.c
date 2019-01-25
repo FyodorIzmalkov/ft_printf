@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 20:13:24 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/11 22:53:52 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/24 22:32:53 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ void	ft_convert_str(t_struct *p, va_list arg)
 {
 	char	*arg_str;
 	char	*temp;
+
 	arg_str = va_arg(arg, char*);
+	arg_str = ft_check_str_precision(p, arg_str);
+	if (ft_check_str_flags(p, arg_str) > 0)
+		return ;
 	temp = p->buf;
 	if (!(p->buf = ft_strjoin(p->buf, arg_str)))
 		ft_malloc_error();
@@ -36,6 +40,8 @@ void	ft_convert_di(t_struct *p, va_list arg)
 	temp = p->buf;
 	if (!(ret = ft_itoa(p->num)))
 		ft_malloc_error();
+	if ((p->minus != 0 || p->plus != 0 || p->space != 0 || p->zero != 0) && ret[0] != '-')
+		ret = ft_check_di_flags(ret, p);
 	if (!(p->buf = ft_strjoin(p->buf, ret)))
 		ft_malloc_error();
 	ft_strdel(&temp);
@@ -51,6 +57,7 @@ void	ft_convert_p(t_struct *p, va_list arg)
 	p->num = (unsigned long)va_arg(arg, void *);
 	if (!(temp = ft_itoa_base(p->num, 16, 2)))
 		ft_malloc_error();
+	temp = ft_left_align_p(temp, p);
 	if (!(p->buf = ft_strjoin(p->buf, temp)))
 		ft_malloc_error();
 	ft_strdel(&temp);

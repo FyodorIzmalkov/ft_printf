@@ -6,7 +6,7 @@
 #    By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/18 17:45:36 by lsandor-          #+#    #+#              #
-#    Updated: 2019/01/11 21:51:47 by lsandor-         ###   ########.fr        #
+#    Updated: 2019/01/24 20:00:17 by lsandor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SOURCES := \
 		libft/ft_strdel.c \
 		libft/ft_itoa.c \
 		libft/ft_strnew.c \
+		libft/ft_strncpy.c\
 		buf.c \
 		conversion.c \
 		conversion_ouxX.c \
@@ -49,7 +50,9 @@ SOURCES := \
 		parce.c \
 		itoa_base.c \
 		conversion_f.c \
-		conv_j_z.c
+		conv_j_z.c \
+		precision_str.c\
+		d_i_flags.c
 
 OBJECTS := $(SOURCES:.c=.o)
 

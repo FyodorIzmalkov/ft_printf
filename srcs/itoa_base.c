@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:37:41 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/11 20:48:11 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/24 19:23:10 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,33 @@ void	itoa_base1(intmax_t val, int base, char *ret, int *i)
 	if (val >= base)
 		itoa_base1(val/base, base, ret, i);
 	ret[(*i)++] = base_str[val % base];
+}
+
+char	*ft_left_align_p(char *ret, t_struct *p)
+{
+	char	*tmp;
+	size_t i;
+	size_t j;
+
+	j = 0;
+	if (ft_strlen(ret) < p->width)
+	{
+		if (!(tmp = ft_strnew(p->width)))
+			ft_malloc_error();
+		i = ft_strlen(ret);
+		if (p->minus != 0)
+		{
+			ft_strcpy(tmp, ret);
+			while (i < p->width)
+				tmp[i++] = ' ';
+			return (tmp);
+		}
+		while (j < p->width - i)
+			tmp[j++] = ' ';
+		ft_strcpy(tmp + j, ret);
+		return (tmp);
+	}
+	return (ret);
 }
 
 char	*ft_itoa_base(intmax_t value, int base, int big)
