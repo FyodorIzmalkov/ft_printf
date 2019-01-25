@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:24:18 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/25 14:04:53 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/25 23:11:15 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -137,15 +137,76 @@ int main()
 	j = ft_printf("FT_PRINTF:'%+i'\n", jk);
 	j = ft_printf("FT_PRINTF:'% d'\n", jk);
 	j = ft_printf("FT_PRINTF:'% i'\n", jk);
-	printf("P:%+d ", jkc);
-	ft_printf("F:%+d \n", jkc);
-	printf("P:%015d ", jk);
+	printf("\n----------NEXT TEST----------\n");
+	ft_printf("F:'%+d' \n", jkc);
+	printf("P:'%+d' \n", jkc);
+	printf("\n----------NEXT TEST----------\n");
 	ft_printf("F:%015d \n", jk);
-	printf("P:%+015d ", jk);
-	ft_printf("F:%+015d \n", jk);
-	printf("P:%+015d ", jkc);
-	ft_printf("F:%+015d \n", jkc);
-	printf("\nP:%-0d \n", jk);
+	printf("P:%015d \n", jk);
+	printf("\n----------NEXT TEST----------\n");
+	ft_printf("F+%%015d:'%+015d' \n", jk);
+	printf("P+%%015d:'%+015d' \n", jk);
+	printf("\n----------NEXT TEST----------\n");
+	ft_printf("F%%+015d:'%+015d' \n", jkc);
+	printf("P%%+015d:'%+015d' \n", jkc);
+	printf("\n----------NEXT TEST----------\n");
+	ft_printf("F%%.12d:'%.12d'\n", jk);
+	printf("P%%.12d:'%.12d'\n", jk);
+	printf("\n----------NEXT TEST----------\n");
+	ft_printf("F%%15.12d:'%15.12d'\n", jk);
+	printf("P%%15.12d:'%15.12d'\n ", jk);
+	printf("\n----------NEXT TEST----------\n");
+	ft_printf("F%%-15.12d:'%-15.12d'\n", jk);
+	printf("P%%-15.12d:'%-15.12d'\n ", jk);
+	printf("\n----------NEXT TEST----------\n");
+	ft_printf("F%%1d:'%1d'\n", jk);
+	printf("P%%1d:'%1d'\n ", jk);
+	printf("\n----------NEXT TEST----------\n");
+	ft_printf("F%%+015.8d:'%+015.11d'\n", jk);
+	printf("P%%+015.8d:'%+015.11d'\n ", jk);
+	printf("\n----------NEXT TEST----------\n");
+	ft_printf("F%%+015.8d:'%+015.11d'\n", jkc);
+	printf("P%%+015.8d:'%+015.11d'\n ", jkc);
+	printf("\n----------NEXT TEST----------\n");
+	ft_printf("F%%-15.10d:'%-15.10d'\n", jkc);
+	printf("P%%-15.10d:'%-15.10d'\n ", jkc);
+	printf("\n----------NEXT TEST----------\n");
+	//short
+	short st = 10;
+	printf("P%%:'%10hd'\n ", st);
+	ft_printf("F%%:'%10hd'\n ", st);
+	printf("\n----------NEXT TEST----------\n");
+	// hh
+	char ii = 100;
+	printf("P:'%10hhd'\n", ii);
+	ft_printf("F:'%10hhd'\n", ii);
+	printf("\n----------NEXT TEST----------\n");
+	// long
+	long int lg = 1234567890123;
+	printf("P:'%20ld'\n", lg);
+	ft_printf("F:'%20ld'\n", lg);
+	printf("\n----------NEXT TEST----------\n");
+	// long long
+	long long int lli = 922337203685477580;
+	printf("P:'%+20lld'\n", lli);
+	ft_printf("F:'%+20lld'\n", lli);
+	printf("\n----------NEXT TEST----------\n");
+	// UNSIGNED
+	unsigned long long uint = 18446744073709551615ULL;
+	ft_printf("\n!!!---UNSIGNED---!!!\n");
+	printf("P:'%.25llo'\n", uint);
+	ft_printf("F:'%.25llo'\n", uint);
+	printf("\n----------NEXT TEST----------\n");
+	printf("P:'%#30.25llx'\n", uint);
+	ft_printf("F:'%#30.25llx'\n", uint);
+	printf("\n----------NEXT TEST----------\n");
+	printf("P:'%#030.18llx'\n", uint);
+	ft_printf("F:'%#030.18llx'\n", uint);
+	printf("\n----------NEXT TEST----------\n");
+	// FLOAT DOUBLE 
+	float fl = 1.5555;
+	printf("P:'%0f'\n", fl);
+	ft_printf("F:'%f'\n", fl);
 	printf("\n----------NEXT TEST----------\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 20:13:24 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/24 22:32:53 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/25 19:50:08 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_convert_di(t_struct *p, va_list arg)
 	temp = p->buf;
 	if (!(ret = ft_itoa(p->num)))
 		ft_malloc_error();
-	if ((p->minus != 0 || p->plus != 0 || p->space != 0 || p->zero != 0) && ret[0] != '-')
+	if (p->minus != 0 || p->plus != 0 || p->space != 0 || p->zero != 0 || p->dot != 0 || p->width != 0 || p->precision != 0)
 		ret = ft_check_di_flags(ret, p);
 	if (!(p->buf = ft_strjoin(p->buf, ret)))
 		ft_malloc_error();

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/24 21:43:03 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/25 22:41:01 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ void	ft_get_length_flags(t_struct *p, va_list arg);
 void	ft_parce_after_percent(t_struct *p, va_list arg);
 void	ft_check_j_z(t_struct *p, va_list arg);
 //itoa_base
-void	itoa_base(intmax_t val, int base, char *ret, int *i);
-void	itoa_base1(intmax_t val, int base, char *ret, int *i);
-char	*ft_itoa_base(intmax_t value, int base, int big);
+void	itoa_base(uintmax_t val, unsigned int base, char *ret, int *i);
+void	itoa_base1(uintmax_t val, unsigned int base, char *ret, int *i);
+char	*ft_itoa_base(uintmax_t value, unsigned int base, int big);
 char	*ft_left_align_p(char *ret, t_struct *p);
 //conversion_f.c
 void	ft_reverse(char *str, int len);
@@ -105,4 +105,18 @@ char	*ft_check_str_precision(t_struct *p, char *str);
 // d_i_flags.c
 char	*ft_check_di_flags(char *str, t_struct *p);
 char	*ft_fill_zeros_with_sign(char *ret, t_struct *p);
+char	*ft_fill_precision_di(char *ret, t_struct *p);
+char	*ft_fill_width_di(char *ret, t_struct *p);
+// string_align_functions.c
+char	*ft_left_align_string(char *str, t_struct *p);
+char	*ft_fill_width(char *ret, t_struct *p);
+char	*ft_check_sign_precision(char *str, t_struct *p);
+char	*ft_fill_it(char *ret, t_struct *p);
+char	*ft_check_sharp(char *ret, t_struct *p);
+// oux_flags.c
+char	*ft_fill_precision_oux(char *ret, t_struct *p);
+char	*ft_check_oux_flags(char *str, t_struct *p);
+char	*ft_fill_zeros_without_sign(char *ret, t_struct *p);
+char	*ft_check_sharp_o(char *ret, t_struct *p);
+char	*ft_check_sharp_x(char *ret, t_struct *p);
 #endif

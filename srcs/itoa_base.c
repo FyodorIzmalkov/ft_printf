@@ -6,13 +6,13 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:37:41 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/24 19:23:10 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/25 20:49:38 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	itoa_base(intmax_t val, int base, char *ret, int *i)
+void	itoa_base(uintmax_t val, unsigned int base, char *ret, int *i)
 {
 	char base_str[] = "0123456789abcdef";
 
@@ -21,7 +21,7 @@ void	itoa_base(intmax_t val, int base, char *ret, int *i)
 	ret[(*i)++] = base_str[val % base];
 }
 
-void	itoa_base1(intmax_t val, int base, char *ret, int *i)
+void	itoa_base1(uintmax_t val, unsigned int base, char *ret, int *i)
 {
 	char base_str[] = "0123456789ABCDEF";
 
@@ -57,21 +57,16 @@ char	*ft_left_align_p(char *ret, t_struct *p)
 	return (ret);
 }
 
-char	*ft_itoa_base(intmax_t value, int base, int big)
+char	*ft_itoa_base(uintmax_t value, unsigned int base, int big)
 {
 	int i;
-	intmax_t val;
+	uintmax_t val;
 	char *ret;
 
 	val = value;
 	i = 0;
 	if (!(ret = ft_strnew(36)))
 		ft_malloc_error();
-	if (base == 10 && val < 0)
-	{
-		ret[i++] = '-';
-		val = -val;
-	}
 	if (big == 0)
 		itoa_base(val, base, ret, &i);
 	if (big == 1)

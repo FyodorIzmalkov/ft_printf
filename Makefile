@@ -6,7 +6,7 @@
 #    By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/18 17:45:36 by lsandor-          #+#    #+#              #
-#    Updated: 2019/01/24 20:00:17 by lsandor-         ###   ########.fr        #
+#    Updated: 2019/01/25 21:48:13 by lsandor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,9 @@ SOURCES := \
 		conversion_f.c \
 		conv_j_z.c \
 		precision_str.c\
-		d_i_flags.c
+		d_i_flags.c\
+		string_align_functions.c\
+		oux_flags.c
 
 OBJECTS := $(SOURCES:.c=.o)
 

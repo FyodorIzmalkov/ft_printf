@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 12:35:27 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/11 20:57:03 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/25 20:50:25 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_convert_ouxX(t_struct *p, va_list arg)
 	else if (p->str[p->i] == 'X')
 		temp = ft_itoa_base(p->num, 16, 1);
 	temp_buf = p->buf;
+	if (p->minus != 0 || p->plus != 0 || p->space != 0 || p->zero != 0 || p->dot != 0 || p->width != 0 || p->precision != 0)
+		temp = ft_check_oux_flags(temp, p);
 	if (!(p->buf = ft_strjoin(p->buf, temp)))
 		ft_malloc_error();
 	ft_strdel(&temp);

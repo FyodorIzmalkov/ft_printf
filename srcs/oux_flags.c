@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   d_i_flags.c                                        :+:      :+:    :+:   */
+/*   oux_flags.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/24 19:39:31 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/25 18:47:32 by lsandor-         ###   ########.fr       */
+/*   Created: 2019/01/25 20:51:13 by lsandor-          #+#    #+#             */
+/*   Updated: 2019/01/25 22:46:00 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_fill_precision_di(char *ret, t_struct *p)
+char	*ft_fill_precision_oux(char *ret, t_struct *p)
 {
 	char *new;
 	size_t i;
 	size_t j;
 
-	if (ret[0] == '-' || ret[0] == '+')
-	{
-		ret = ft_check_sign_precision(ret, p);
-		return (ret);
-	}
 	i = ft_strlen(ret);
 	if (i < p->precision)
 	{
@@ -38,60 +33,72 @@ char	*ft_fill_precision_di(char *ret, t_struct *p)
 	return (ret);
 }
 
-char	*ft_check_di_flags(char *str, t_struct *p)
+char	*ft_check_oux_flags(char *str, t_struct *p)
 {
 	char *ret;
 
 	ret = NULL;
-	if (p->plus != 0 && str[0] != '-' && p->space == 0)
-		ret = ft_put_char_at_start(str, '+');
-	if (p->space != 0 && p->plus == 0)
-		ret = ft_put_char_at_start(str, ' ');
 	if (p->minus == 0 && p->zero != 0)
 	{
 		if (ret != NULL && p->width > ft_strlen(ret))
-			ret = ft_fill_zeros_with_sign(ret, p);
+			ret = ft_fill_zeros_without_sign(ret, p);
 		else if (str != NULL && (p->plus == 0 || str[0] == '-') &&
 				p->width > ft_strlen(str))
-			ret = ft_fill_zeros_with_sign(str, p);
+			ret = ft_fill_zeros_without_sign(str, p);
 	}
 	if (p->dot == 1 && ret != NULL)
-		ret = ft_fill_precision_di(ret, p);
+		ret = ft_fill_precision_oux(ret, p);
 	else if (p->dot == 1 && str != NULL)
-		ret = ft_fill_precision_di(str, p);
-	if	((p->minus == 1 || p->width != 0) && ret != NULL)
+		ret = ft_fill_precision_oux(str, p);
+	if	(p->width != 0 && ret != NULL)
 		ret = ft_fill_width(ret, p);
-	else if ((p->minus == 1 || p->width != 0) && str != NULL)
+	else if (p->width != 0 && str != NULL)
 		ret = ft_fill_width(str, p);
 	return (ret == NULL ? str : ret);
 }
 
-char	*ft_fill_zeros_with_sign(char *ret, t_struct *p)
+char	*ft_fill_zeros_without_sign(char *ret, t_struct *p)
 {
 	size_t i;
 	size_t j;
 	char *tmp;
-	
+
 	i = ft_strlen(ret);
 	if (!(tmp = ft_strnew(p->width)))
 		ft_malloc_error();
-	if (ret[0] == '-' || ret[0] == '+')
-	{
-		tmp[0] = ret[0];
-		j = 1;
-		while (j < p->width - i + 1 && p->precision == 0)
-			tmp[j++] = '0';
-		ft_strcpy(tmp + j, ret + 1);
-		ft_strdel(&ret);
-		return (tmp);
-	}
-	else
-	{
-		j = 0;
-		while (j < p->width - i && p->precision == 0)
-			tmp[j++] = '0';
-	}
+	j = 0;
+	while (j < p->width - i && p->precision == 0)
+		tmp[j++] = '0';
 	ft_strcpy(tmp + j, ret);
 	ft_strdel(&ret);
 	return (tmp);
+}
+
+char	*ft_check_sharp_o(char *ret, t_struct *p)
+{
+	char *new;
+	size_t z;
+	size_t j = p->width;
+
+	z = 0;
+	new = NULL;
+	j = 0;
+	while (ret[z] != '\0' && ret[z] == '0')
+		z++;
+	if (z == 0)
+		new = ft_put_char_at_start(ret, '0');
+	return (new == NULL ? ret : new);
+}
+
+char	*ft_check_sharp_x(char *ret, t_struct *p)
+{
+	char *new;
+
+	new = NULL;
+	if (p->num != 0)
+	{
+		new = ft_put_char_at_start(ret, 'x');
+		new = ft_put_char_at_start(new, '0');
+	}
+	return (new = NULL ? ret : new);
 }
