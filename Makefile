@@ -6,7 +6,7 @@
 #    By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/18 17:45:36 by lsandor-          #+#    #+#              #
-#    Updated: 2019/01/26 13:16:21 by lsandor-         ###   ########.fr        #
+#    Updated: 2019/01/26 14:26:05 by lsandor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,8 @@ SOURCES := \
 		d_i_flags.c\
 		string_align_functions.c\
 		oux_flags.c\
-		llitoa.c
+		llitoa.c\
+		float_flags.c
 
 OBJECTS := $(SOURCES:.c=.o)
 

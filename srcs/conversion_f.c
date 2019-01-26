@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 17:13:14 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/26 13:16:00 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/26 14:32:08 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	*ft_ftoa(long double n, int point)
 	if (point > 0)
 		str = ft_part_to_str(ipart, tmp, point);
 	else
-		str = tmp;
+		str = ft_check_for_round(tmp, n, ipart);
 	return (str);
 }
 
@@ -93,7 +93,10 @@ void	ft_convert_f(t_struct *p, va_list arg)
 	if (p->is_ldouble == 1)
 		return ;
 	p->flt = (double)va_arg(arg, double);
-	temp = ft_ftoa(p->flt, 6);
+	if (p->dot == 1)
+		temp = ft_ftoa(p->flt, p->precision);
+	else
+		temp = ft_ftoa(p->flt, 6);
 	temp_buf = p->buf;
 	if (!(p->buf = ft_strjoin(p->buf, temp)))
 		ft_malloc_error();

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 21:37:30 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/25 19:43:47 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/26 14:08:32 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_get_width_and_precision(t_struct *p)
 			continue ;
 		}
 		else if (p->dot == 1)
-		{	
+		{
 			p->precision = (p->precision * 10) + (p->str[p->i] - '0');
 			p->i++;
 			continue ;

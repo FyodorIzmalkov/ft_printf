@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:43:35 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/24 15:37:21 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/26 14:10:02 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_check_str_flags(t_struct *p, char *str)
 		if (!(new = ft_strnew(p->width)))
 			ft_malloc_error();
 		tmp = p->buf;
-		if (p->minus != 0)
+		if (p->minus > 0)
 		{
 			ft_left_align_str(new, str, p->width, 1);
 			if (!(p->buf = ft_strjoin(p->buf, new)))
