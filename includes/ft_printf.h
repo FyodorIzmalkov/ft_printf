@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/26 12:21:08 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/26 13:14:11 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,11 @@ void	itoa_base1(uintmax_t val, unsigned int base, char *ret, int *i);
 char	*ft_itoa_base(uintmax_t value, unsigned int base, int big);
 char	*ft_left_align_p(char *ret, t_struct *p);
 //conversion_f.c
-void	ft_reverse(char *str, int len);
-int		ft_int_to_str(long x, char *str, int d);
-long	ft_power(long x, unsigned int y);
+char	*ft_part_to_str(long long x, char *str, int d);
+long	ft_power(long long x, unsigned int y);
 char	*ft_ftoa(long double n, int point);
 void	ft_convert_f(t_struct *p, va_list arg);
+char	*ft_fillstr(int len, char c);
 //conv_j_z
 void	ft_conv_j(t_struct *p, va_list arg);
 void	ft_conv_z(t_struct *p, va_list arg);
@@ -119,4 +119,8 @@ char	*ft_check_oux_flags(char *str, t_struct *p);
 char	*ft_fill_zeros_without_sign(char *ret, t_struct *p);
 char	*ft_check_sharp_o(char *ret, t_struct *p);
 char	*ft_check_sharp_x(char *ret, t_struct *p);
+//llitoa.c
+size_t	ft_digits(long long int n);
+void		ft_inner_itoa(long long int n, size_t len, char *buf);
+char			*ft_llitoa(long long int n);
 #endif
