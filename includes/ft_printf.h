@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/25 22:41:01 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/26 12:21:08 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ char	*ft_left_align_p(char *ret, t_struct *p);
 void	ft_reverse(char *str, int len);
 int		ft_int_to_str(long x, char *str, int d);
 long	ft_power(long x, unsigned int y);
-char	*ftoa(long double n, int point);
+char	*ft_ftoa(long double n, int point);
 void	ft_convert_f(t_struct *p, va_list arg);
 //conv_j_z
 void	ft_conv_j(t_struct *p, va_list arg);

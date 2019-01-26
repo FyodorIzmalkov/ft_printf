@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:24:18 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/25 23:11:15 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/26 12:18:03 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -204,7 +204,7 @@ int main()
 	ft_printf("F:'%#030.18llx'\n", uint);
 	printf("\n----------NEXT TEST----------\n");
 	// FLOAT DOUBLE 
-	float fl = 1.5555;
+	float fl = 1.555555;
 	printf("P:'%0f'\n", fl);
 	ft_printf("F:'%f'\n", fl);
 	printf("\n----------NEXT TEST----------\n");

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 17:13:14 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/11 20:11:36 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/26 12:20:36 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ long	ft_power(long x, unsigned int y)
 		return (x * ft_power(x, y / 2) * ft_power(x, y / 2));
 }
 
-char	*ftoa(long double n, int point)
+char	*ft_ftoa(long double n, int point)
 {
 	long ipart;
 	long double fpart;
