@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:24:18 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/26 14:39:25 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/26 15:35:17 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -204,9 +204,19 @@ int main()
 	ft_printf("F:'%#030.18llx'\n", uint);
 	printf("\n----------NEXT TEST----------\n");
 	// FLOAT DOUBLE 
-	float fl = 151.45;
-	printf("P:'%.0f'\n", fl);
-	ft_printf("F:'%.0f'\n", fl);
+	float fl = 151.456789;
+	long double lodbl = -1234567890123.1234567890123;
+	printf("P:'%.0lf'\n", fl);
+	ft_printf("F:'%.0lf'\n", fl);
+	printf("\n----------NEXT TEST----------\n");
+	printf("P:'%+015.5lf'\n", fl);
+	ft_printf("F:'%+015.5lf'\n", fl);
+	printf("\n----------NEXT TEST----------\n");
+	printf("P:'%+-15.10lf'\n", fl);
+	ft_printf("F:'%+-015.10lf'\n", fl);
+	printf("\n----------NEXT TEST----------\n");
+	printf("P:'%+050.10Lf'\n", lodbl);
+	ft_printf("F:'%+050.10Lf'\n", lodbl);
 	printf("\n----------NEXT TEST----------\n");
 	return (0);
 }
