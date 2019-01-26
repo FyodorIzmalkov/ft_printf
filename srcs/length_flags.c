@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 16:03:46 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/25 19:42:03 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/26 13:17:53 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_L(t_struct *p, va_list arg)
 	{
 		p->is_ldouble = 1;
 		p->dbl = (long double)va_arg(arg, long double);
-		temp = ftoa(p->dbl, 6);
+		temp = ft_ftoa(p->dbl, 6);
 		temp_buf = p->buf;
 		if (!(p->buf = ft_strjoin(p->buf, temp)))
 			ft_malloc_error();
