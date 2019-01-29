@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_make_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/29 11:38:49 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 19:04:11 by lsandor-         ###   ########.fr       */
+/*   Created: 2019/01/29 18:13:18 by lsandor-          #+#    #+#             */
+/*   Updated: 2019/01/29 18:14:48 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int main(void)
+char	*ft_make_string(const char *str)
 {
-	ft_printf("'%.2c'\n", NULL);
-	printf("'%.2c'\n", NULL);
-	return (0);
+	char *new;
+	size_t i;
+
+	i = ft_strlen(str);
+	if (!(new = ft_strnew(i)))
+		ft_malloc_error();
+	ft_strcpy(new, str);
+	return (new);
 }

@@ -6,7 +6,7 @@
 #    By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/18 17:45:36 by lsandor-          #+#    #+#              #
-#    Updated: 2019/01/29 15:26:05 by lsandor-         ###   ########.fr        #
+#    Updated: 2019/01/29 18:22:28 by lsandor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ SOURCES := \
 		length_flags.c \
 		struct.c \
 		flags_validation.c \
-		conversion_c.c \
+		char_conv.c \
 		errors.c \
 		parce_after_percent.c \
 		itoa_base.c \
@@ -58,7 +58,8 @@ SOURCES := \
 		llitoa.c\
 		float_flags.c\
 		percent_align.c\
-		check_for_ox.c
+		check_for_ox.c\
+		ft_make_string.c
 
 OBJECTS := $(SOURCES:.c=.o)
 

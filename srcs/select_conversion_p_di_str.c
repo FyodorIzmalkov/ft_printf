@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 20:13:24 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 14:30:24 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 18:15:04 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	ft_convert_str(t_struct *p, va_list arg)
 	char	*temp;
 
 	arg_str = va_arg(arg, char*);
-	arg_str = ft_check_str_precision(p, arg_str);
+	if (arg_str == NULL)
+		arg_str = ft_make_string("(null)");
+	else
+		arg_str = ft_check_str_precision(p, arg_str);
 	if (ft_check_str_flags(p, arg_str) > 0)
 		return ;
 	temp = p->buf;

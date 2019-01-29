@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:39:41 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 13:39:36 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 17:39:40 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_fill_width(char *ret, t_struct *p)
 	size_t i;
 
 	i = ft_strlen(ret);
-	if (i < p->width)
+	if (i < p->width || p->sharp == 1)
 	{
 		if (p->sharp == 1)
 			ret = ft_check_sharp(ret, p);
@@ -82,6 +82,8 @@ char	*ft_fill_it(char *ret, t_struct *p)
 	char *new;
 
 	new = NULL;
+	if (p->width == 0)
+		return (ret);
 	i = ft_strlen(ret);
 	if (!(new = ft_strnew(p->width)))
 		ft_malloc_error();

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 20:51:13 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 15:39:03 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 18:04:19 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_fill_precision_oux(char *ret, t_struct *p)
 	size_t j;
 
 	i = ft_strlen(ret);
+	if (p->precision == 0 && p->dot == 1)
+		return (ft_strnew(1));
 	if (i < p->precision)
 	{
 		if (!(new = ft_strnew(p->precision)))
@@ -38,6 +40,8 @@ char	*ft_check_oux_flags(char *str, t_struct *p)
 	char *ret;
 
 	ret = NULL;
+	if (p->sharp == 1 && p->num != 0)
+		p->width -= 2;
 	if (p->minus == 0 && p->zero != 0)
 	{
 		if (ret != NULL && p->width > ft_strlen(ret))
@@ -54,10 +58,6 @@ char	*ft_check_oux_flags(char *str, t_struct *p)
 		ret = ft_fill_width(ret, p);
 	else if (p->width != 0 && str != NULL)
 		ret = ft_fill_width(str, p);
-	if (p->sharp != 0 && ret != NULL)
-		ret = ft_check_sharp_x(ret, p);
-	else if (p->sharp != 0 && str != NULL)
-		ret = ft_check_sharp_x(str, p);
 	return (ret == NULL ? str : ret);
 }
 
@@ -99,15 +99,21 @@ char	*ft_check_sharp_x(char *ret, t_struct *p)
 	char *new;
 
 	new = NULL;
-	if (p->num != 0 && p->str[p->i] == 'x' && ft_check_ox(ret) > 0)
+	if (p->num != 0 && p->str[p->i] == 'x')
 	{
+		if (ft_check_ox(ret) == 1)
+			return (ret);
 		new = ft_put_char_at_start(ret, 'x');
 		new = ft_put_char_at_start(new, '0');
+		p->width +=2;
 	}
-	else if (p->num != 0 && p->str[p->i] == 'X' && ft_check_ox(ret) > 0)
+	else if (p->num != 0 && p->str[p->i] == 'X')
 	{
+		if (ft_check_ox(ret) == 1)
+			return (ret);
 		new = ft_put_char_at_start(ret, 'X');
 		new = ft_put_char_at_start(new, '0');
+		p->width +=2;
 	}
 	return (new = NULL ? ret : new);
 }

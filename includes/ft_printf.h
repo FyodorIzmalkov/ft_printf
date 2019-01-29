@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 15:30:44 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 18:16:01 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,4 +134,6 @@ char	*ft_align_percent(t_struct *p, char *str);
 char	*ft_percent_zero(t_struct *p, char *str);
 // check for ox
 int		ft_check_ox(char *str);
+// ft_make_string.c
+char	*ft_make_string(const char *str);
 #endif
