@@ -6,7 +6,7 @@
 #    By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/18 17:45:36 by lsandor-          #+#    #+#              #
-#    Updated: 2019/01/29 11:35:33 by lsandor-         ###   ########.fr        #
+#    Updated: 2019/01/29 12:28:30 by lsandor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJECTS_FOLDER  := objs/
 
 vpath %.c srcs
 
-FLAGS := -Wall -Wextra -Werror -O2
+FLAGS := -Wall -Wextra -Werror -g -O2
 
 SOURCES := \
 		libft/ft_isdigit.c \
@@ -39,15 +39,15 @@ SOURCES := \
 		libft/ft_strncpy.c\
 		libft/ft_strcat.c\
 		buf.c \
-		conversion.c \
+		select_conversion_p_di_str.c \
 		conversion_ouxX.c \
 		ft_printf.c \
 		length_flags.c \
 		struct.c \
-		check_flags.c \
+		flags_validation.c \
 		conversion_c.c \
 		errors.c \
-		parce.c \
+		parce_after_percent.c \
 		itoa_base.c \
 		conversion_f.c \
 		conv_j_z.c \

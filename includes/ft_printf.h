@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 11:18:28 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 12:08:47 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_struct
 //buf
 void	ft_put_char_in_buff(t_struct *p, char c);
 char	*ft_put_char_at_start(char *str, char c);
-//conversion
+//select_conversion
 void	ft_convert_str(t_struct *p, va_list arg);
 void	ft_convert_di(t_struct *p, va_list arg);
 void	ft_select_conversion(t_struct *p, va_list arg);
@@ -66,7 +66,7 @@ void	ft_L(t_struct *p, va_list arg);
 //struct
 t_struct	*ft_make_struct(char *str);
 void	ft_clean_struct(t_struct *p);
-//check_flags
+//flags_validation
 int	ft_check_pre_flag(char c);
 int		ft_check_dot_and_digits(char c);
 int		ft_check_length_flags(char c);
@@ -78,7 +78,7 @@ void	ft_malloc_error(void);
 void	ft_arg_error(void);
 //ft_set
 void	ft_set_digits(t_struct *p);
-//parce
+//parce_after_percent
 void	ft_get_flags(t_struct *p);
 void	ft_get_width_and_precision(t_struct *p);
 void	ft_get_length_flags(t_struct *p, va_list arg);
