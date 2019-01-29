@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 21:15:55 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 15:01:31 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 23:29:32 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,24 @@ void	ft_conv_j(t_struct *p, va_list arg)
 	if (p->str[p->i] == 'o' || p->str[p->i] == 'u' || p->str[p->i] == 'x' ||
 			p->str[p->i] == 'X' || p->str[p->i] == 'O' || p->str[p->i] == 'U')
 	{
-		p->num = (uintmax_t)va_arg(arg, uintmax_t);
+		p->num = va_arg(arg, uintmax_t);
 		ft_convert_ouxX(p, arg);
 	}
 	if (p->str[p->i] == 'd' || p->str[p->i] == 'i' || p->str[p->i] == 'D')
+	{
+		p->num = va_arg(arg, intmax_t);
 		ft_convert_di(p, arg);
+	}
 	p->j = 1;
 }
 
 void	ft_conv_z(t_struct *p, va_list arg)
 {
 	if (p->str[p->i] == 'd' || p->str[p->i] == 'i' || p->str[p->i] == 'D')
+	{
+		p->num = va_arg(arg, ssize_t);
 		ft_convert_di(p, arg);
+	}
 	if (p->str[p->i] == 'o' || p->str[p->i] == 'u' || p->str[p->i] == 'x' ||
 			p->str[p->i] == 'X' || p->str[p->i] == 'O' || p->str[p->i] == 'U')
 		ft_convert_ouxX(p, arg);

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 18:16:01 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 23:29:57 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_struct
 	int fd;
 	int perc_pos;
 	int unicode;
+	int dog;
 	short h;
 	short hh;
 	short j;
@@ -44,7 +45,8 @@ typedef struct s_struct
 	long double dbl;
 	double flt;
 	short is_ldouble;
-	uintmax_t num;
+	uintmax_t unum;
+	intmax_t num;
 	short digits;
 }	t_struct;
 

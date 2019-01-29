@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 20:13:24 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 18:15:04 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 22:19:07 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void	ft_convert_di(t_struct *p, va_list arg)
 	if (p->num == 0)
 		p->num = (int)va_arg(arg, uintmax_t);
 	temp = p->buf;
-	if (!(ret = ft_itoa(p->num)))
+	if ((intmax_t)p->num == -9223372036854775807 - 1)
+		ret = ft_make_string("-9223372036854775808");
+	else if (!(ret = ft_itoa(p->num)))
 		ft_malloc_error();
 	if (p->minus != 0 || p->plus != 0 || p->space != 0 || p->zero != 0 || p->dot != 0 || p->width != 0 || p->precision != 0)
 		ret = ft_check_di_flags(ret, p);

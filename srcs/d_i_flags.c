@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 19:39:31 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/25 18:47:32 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 20:58:17 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_check_di_flags(char *str, t_struct *p)
 	char *ret;
 
 	ret = NULL;
-	if (p->plus != 0 && str[0] != '-' && p->space == 0)
+	if (p->plus != 0 && str[0] != '-')
 		ret = ft_put_char_at_start(str, '+');
 	if (p->space != 0 && p->plus == 0)
 		ret = ft_put_char_at_start(str, ' ');

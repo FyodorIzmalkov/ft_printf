@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 16:03:46 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 14:43:59 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 23:22:01 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_h_hh(t_struct *p, va_list arg)
 {
 	if (p->str[p->i] == 'd' || p->str[p->i] == 'i')
-		p->num = (short int)va_arg(arg, uintmax_t);
+		p->num = (short)va_arg(arg, long);
 	if (p->str[p->i] == 'o' || p->str[p->i] == 'u' || p->str[p->i] == 'x' ||
-			p->str[p->i] == 'X')
+			p->str[p->i] == 'X' || p->str[p->i] == 'U')
 	{
 		p->h = 1;
 		p->num = (unsigned short)va_arg(arg, unsigned int);
@@ -26,12 +26,12 @@ void	ft_h_hh(t_struct *p, va_list arg)
 	{
 		p->i++;
 		if (p->str[p->i] == 'd' || p->str[p->i] == 'i')
-			p->num = (char)va_arg(arg, uintmax_t);
+			p->num = (signed char)va_arg(arg, long);
 		else if (p->str[p->i] == 'o' || p->str[p->i] == 'u' ||
-				p->str[p->i] == 'x' || p->str[p->i] == 'X')
+				p->str[p->i] == 'x' || p->str[p->i] == 'X' || p->str[p->i] == 'U')
 		{
 			p->hh = 1;
-			p->num = (unsigned char)va_arg(arg, uintmax_t);
+			p->num = (unsigned char)va_arg(arg, unsigned int);
 		}
 	}
 }

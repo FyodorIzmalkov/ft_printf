@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 15:34:16 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/25 19:49:44 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 22:18:11 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static size_t	ft_itoa_len(long long int n)
 	return (i);
 }
 
-char			*ft_itoa(long long int n)
+char			*ft_itoa(intmax_t n)
 {
 	char			*ret;
 	size_t			len;
-	long long int	temp;
+	intmax_t		temp;
 
 	len = ft_itoa_len(n);
 	temp = n;

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 20:51:30 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 12:30:53 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 20:54:30 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ char	*ft_put_char_at_start(char *str, char c)
 {
 	char *new;
 	size_t i;
-
+	
+	if (str[0] == '-')
+		return (str);
 	i = ft_strlen(str);
 	if (!(new = ft_strnew(i)))
 		ft_malloc_error();

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 12:35:27 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 16:52:31 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 23:22:31 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_convert_ouxX(t_struct *p, va_list arg)
 	if (p->j == 1 || p->z == 1)
 		return ;
 	if (p->num == 0 && (p->h == 0 && p->hh == 0))
-		p->num = (unsigned int)va_arg(arg, uintmax_t);
+		p->num = va_arg(arg, unsigned int);
 	if (p->str[p->i] == 'o' || p->str[p->i] == 'O')
 		temp = ft_itoa_base(p->num, 8, 0);
 	else if (p->str[p->i] == 'u' || p->str[p->i] == 'U')
