@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/26 15:16:01 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 11:18:28 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,4 +127,7 @@ char			*ft_llitoa(long long int n);
 char	*ft_check_for_round(char *str, long double n);
 char	*ft_check_float_flags(char *str, t_struct *p);
 char	*ft_fill_zeros_with_sign_float(char *ret, t_struct *p);
+//percent_align.c
+char	*ft_align_percent(t_struct *p, char *str);
+char	*ft_percent_zero(t_struct *p, char *str);
 #endif

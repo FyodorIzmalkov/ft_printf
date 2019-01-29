@@ -6,7 +6,7 @@
 #    By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/18 17:45:36 by lsandor-          #+#    #+#              #
-#    Updated: 2019/01/26 14:26:05 by lsandor-         ###   ########.fr        #
+#    Updated: 2019/01/29 11:35:33 by lsandor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,9 @@ OBJECTS_FOLDER  := objs/
 
 vpath %.c srcs
 
-FLAGS := -Wall -Wextra -Werror -g -O2
+FLAGS := -Wall -Wextra -Werror -O2
 
 SOURCES := \
-		main.c \
 		libft/ft_isdigit.c \
 		libft/ft_putstr_fd.c \
 		libft/ft_putchar_fd.c \
@@ -57,7 +56,8 @@ SOURCES := \
 		string_align_functions.c\
 		oux_flags.c\
 		llitoa.c\
-		float_flags.c
+		float_flags.c\
+		percent_align.c
 
 OBJECTS := $(SOURCES:.c=.o)
 
@@ -67,7 +67,7 @@ SOURCES := $(addprefix $(SOURCES_FOLDER), $(SOURCES))
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(CC) $(FLAGS) $(OBJECTS) -o $@
+	ar rcs $(NAME) $(OBJECTS)
 
 objs/%.o: %.c
 	mkdir -p $(dir $@)

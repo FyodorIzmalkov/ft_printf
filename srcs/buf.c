@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 20:51:30 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/25 21:43:44 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 11:05:07 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	ft_put_char_in_buff(t_struct *p, char c)
 	if (!(to_write = ft_memalloc(sizeof(char) * 2)))
 		ft_malloc_error();
 	to_write[0] = c;
+	if (c == '%')
+		to_write = ft_align_percent(p, to_write);
 	if (!(p->buf = ft_strjoin(p->buf, to_write)))
 		ft_malloc_error();
 	ft_strdel(&temp);
