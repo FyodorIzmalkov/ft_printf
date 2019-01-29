@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 12:08:47 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 15:30:44 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct s_struct
 	int fd;
 	int perc_pos;
 	int unicode;
+	short h;
+	short hh;
 	short j;
 	short z;
 	long double dbl;
@@ -130,4 +132,6 @@ char	*ft_fill_zeros_with_sign_float(char *ret, t_struct *p);
 //percent_align.c
 char	*ft_align_percent(t_struct *p, char *str);
 char	*ft_percent_zero(t_struct *p, char *str);
+// check for ox
+int		ft_check_ox(char *str);
 #endif

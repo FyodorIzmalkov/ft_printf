@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 20:51:13 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/25 22:46:00 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/29 15:39:03 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ char	*ft_check_oux_flags(char *str, t_struct *p)
 		ret = ft_fill_width(ret, p);
 	else if (p->width != 0 && str != NULL)
 		ret = ft_fill_width(str, p);
+	if (p->sharp != 0 && ret != NULL)
+		ret = ft_check_sharp_x(ret, p);
+	else if (p->sharp != 0 && str != NULL)
+		ret = ft_check_sharp_x(str, p);
 	return (ret == NULL ? str : ret);
 }
 
@@ -95,9 +99,14 @@ char	*ft_check_sharp_x(char *ret, t_struct *p)
 	char *new;
 
 	new = NULL;
-	if (p->num != 0)
+	if (p->num != 0 && p->str[p->i] == 'x' && ft_check_ox(ret) > 0)
 	{
 		new = ft_put_char_at_start(ret, 'x');
+		new = ft_put_char_at_start(new, '0');
+	}
+	else if (p->num != 0 && p->str[p->i] == 'X' && ft_check_ox(ret) > 0)
+	{
+		new = ft_put_char_at_start(ret, 'X');
 		new = ft_put_char_at_start(new, '0');
 	}
 	return (new = NULL ? ret : new);
