@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 20:13:24 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 17:03:42 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 19:40:47 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_convert_str(t_struct *p, va_list arg)
 	temp = p->buf;
 	if (!(p->buf = ft_strjoin(p->buf, arg_str)))
 		ft_malloc_error();
+	if (ft_strcmp(arg_str, "(null)") == 0)
+		free(arg_str);
 	ft_strdel(&temp);
 }
 
@@ -77,7 +79,7 @@ void	ft_select_conversion(t_struct *p, va_list arg)
 		ft_convert_c(p, arg);
 	if (p->str[p->i] == 'o' || p->str[p->i] == 'u' || p->str[p->i] == 'x' ||
 			p->str[p->i] == 'X' || p->str[p->i] == 'O')
-		ft_convert_ouxX(p, arg);
+		ft_convert_oux(p, arg);
 	else if (p->str[p->i] == 'U')
 		ft_format_u(p, arg);
 	if (p->str[p->i] == 's' || p->str[p->i] == 'S')

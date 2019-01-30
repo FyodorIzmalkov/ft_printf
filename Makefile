@@ -6,7 +6,7 @@
 #    By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/18 17:45:36 by lsandor-          #+#    #+#              #
-#    Updated: 2019/01/30 18:11:47 by lsandor-         ###   ########.fr        #
+#    Updated: 2019/01/30 19:41:32 by lsandor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SOURCES := \
 		libft/ft_strnew.c \
 		libft/ft_strncpy.c\
 		libft/ft_strcat.c\
+		libft/ft_strcmp.c\
 		buf.c \
 		select_conversion_p_di_str.c \
 		conversion_oux.c \
@@ -60,7 +61,7 @@ SOURCES := \
 		percent_align.c\
 		check_for_ox.c\
 		ft_make_string.c\
-		ft_format_U.c\
+		ft_format_u.c\
 
 OBJECTS := $(SOURCES:.c=.o)
 

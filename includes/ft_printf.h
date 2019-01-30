@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 18:11:06 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 19:30:16 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct	s_struct
 */
 void	ft_put_char_in_buff(t_struct *p, char c);
 char	*ft_put_char_at_start(char *str, char c);
+char	*ft_return_single(char *str);
 /*
 **select_conversion.c
 */
@@ -147,6 +148,7 @@ char	*ft_percent_zero(t_struct *p, char *str);
 int		ft_check_ox(char *str);
 // ft_make_string.c
 char	*ft_make_string(const char *str);
+void	ft_make_null(t_struct *p, char *str);
 //ft_format_U.c
 void	ft_format_u(t_struct *p, va_list arg);
 #endif

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 20:51:13 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 20:43:10 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 18:51:18 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ char	*ft_fill_precision_oux(char *ret, t_struct *p)
 
 	i = ft_strlen(ret);
 	if (p->precision == 0 && p->dot == 1 && (p->str[p->i] == 'x' || p->str[p->i] == 'X'))
-		return (ft_strnew(1));
+		return (ft_return_single(ret));
 	else if (p->precision == 0 && p->dot == 1 && p->str[p->i] == 'o' && p->sharp == 0)
-		return (ft_strnew(1));
+		return (ft_return_single(ret));
 	if (i < p->precision)
 	{
 		if (!(new = ft_strnew(p->precision)))

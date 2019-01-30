@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 20:51:30 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 16:09:47 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 19:06:39 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,16 @@ char	*ft_put_char_at_start(char *str, char c)
 	new[0] = c;
 	ft_strcpy(new + 1, str);
 	ft_strdel(&str);
+	return (new);
+}
+
+char	*ft_return_single(char *str)
+{
+	char *new;
+
+	new = NULL;
+	ft_strdel(&str);
+	if (!(new = ft_strnew(1)))
+		ft_malloc_error();
 	return (new);
 }

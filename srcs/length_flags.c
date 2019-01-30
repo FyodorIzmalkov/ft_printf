@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 16:03:46 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 17:58:54 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 18:32:35 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 void	ft_h_hh(t_struct *p, va_list arg)
 {
 	if (p->str[p->i] == 'd' || p->str[p->i] == 'i')
-		p->num = (short)va_arg(arg, long);
+	{
+		p->formatted = 1;
+		p->num = (short)va_arg(arg, int);
+	}
 	if (p->str[p->i] == 'o' || p->str[p->i] == 'u' || p->str[p->i] == 'x' ||
 			p->str[p->i] == 'X')
 	{
@@ -26,7 +29,10 @@ void	ft_h_hh(t_struct *p, va_list arg)
 	{
 		p->i++;
 		if (p->str[p->i] == 'd' || p->str[p->i] == 'i')
+		{
 			p->num = (signed char)va_arg(arg, int);
+			p->formatted = 1;
+		}
 		else if (p->str[p->i] == 'o' || p->str[p->i] == 'u' ||
 				p->str[p->i] == 'x' || p->str[p->i] == 'X' || p->str[p->i] == 'U')
 		{
