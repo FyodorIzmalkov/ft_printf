@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 23:29:57 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 16:17:04 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ typedef struct s_struct
 	long double dbl;
 	double flt;
 	short is_ldouble;
-	uintmax_t unum;
-	intmax_t num;
+	uintmax_t num;
+	short formatted;
 	short digits;
 }	t_struct;
 
@@ -138,4 +138,6 @@ char	*ft_percent_zero(t_struct *p, char *str);
 int		ft_check_ox(char *str);
 // ft_make_string.c
 char	*ft_make_string(const char *str);
+//ft_format_U.c
+void	ft_format_u(t_struct *p, va_list arg);
 #endif

@@ -6,7 +6,7 @@
 #    By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/18 17:45:36 by lsandor-          #+#    #+#              #
-#    Updated: 2019/01/29 18:22:28 by lsandor-         ###   ########.fr        #
+#    Updated: 2019/01/30 16:17:06 by lsandor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,8 @@ SOURCES := \
 		float_flags.c\
 		percent_align.c\
 		check_for_ox.c\
-		ft_make_string.c
+		ft_make_string.c\
+		ft_format_U.c\
 
 OBJECTS := $(SOURCES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 20:13:24 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 22:19:07 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 15:29:53 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_convert_di(t_struct *p, va_list arg)
 
 	if (p->j == 1 || p->z == 1)
 		return ;
-	if (p->num == 0)
+	if (p->num == 0 && p->formatted == 0)
 		p->num = (int)va_arg(arg, uintmax_t);
 	temp = p->buf;
 	if ((intmax_t)p->num == -9223372036854775807 - 1)
@@ -76,8 +76,10 @@ void	ft_select_conversion(t_struct *p, va_list arg)
 	if (p->str[p->i] == 'c' || p->str[p->i] == 'C')
 		ft_convert_c(p, arg);
 	if (p->str[p->i] == 'o' || p->str[p->i] == 'u' || p->str[p->i] == 'x' ||
-			p->str[p->i] == 'X' || p->str[p->i] == 'O' || p->str[p->i] == 'U')
+			p->str[p->i] == 'X' || p->str[p->i] == 'O')
 		ft_convert_ouxX(p, arg);
+	else if (p->str[p->i] == 'U')
+		ft_format_u(p, arg);
 	if (p->str[p->i] == 's' || p->str[p->i] == 'S')
 		ft_convert_str(p, arg);
 	if (p->str[p->i] == 'd' || p->str[p->i] == 'i' || p->str[p->i] == 'D')

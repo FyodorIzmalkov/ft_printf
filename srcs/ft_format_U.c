@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_format_U.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/29 11:38:49 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 16:23:01 by lsandor-         ###   ########.fr       */
+/*   Created: 2019/01/30 15:23:20 by lsandor-          #+#    #+#             */
+/*   Updated: 2019/01/30 15:28:18 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int main(void)
+void	ft_format_u(t_struct *p, va_list arg)
 {
-
-	turn (0);
+	p->formatted = 1;
+	p->num = (unsigned long)va_arg(arg, uintmax_t);
+	ft_convert_ouxX(p, arg);
 }
