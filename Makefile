@@ -6,7 +6,7 @@
 #    By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/18 17:45:36 by lsandor-          #+#    #+#              #
-#    Updated: 2019/01/30 17:07:21 by lsandor-         ###   ########.fr        #
+#    Updated: 2019/01/30 18:11:47 by lsandor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SOURCES := \
 		libft/ft_strcat.c\
 		buf.c \
 		select_conversion_p_di_str.c \
-		conversion_ouxX.c \
+		conversion_oux.c \
 		ft_printf.c \
 		length_flags.c \
 		struct.c \

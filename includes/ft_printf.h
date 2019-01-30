@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 17:10:56 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 18:11:06 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,50 +20,59 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-typedef struct s_struct
+typedef struct	s_struct
 {
-	char	*buf;
-	char	*str;
-	int	i;
-	size_t width;
-	size_t precision;
-	short	dot;
-	int base;
-	int sharp;
-	int plus;
-	int minus;
-	int space;
-	int zero;
-	int fd;
-	int perc_pos;
-	int unicode;
-	int dog;
-	short h;
-	short hh;
-	short j;
-	short z;
-	long double dbl;
-	double flt;
-	short is_ldouble;
-	uintmax_t num;
-	short formatted;
-	short digits;
-}	t_struct;
-
-//buf
+	char		*buf;
+	char		*str;
+	int			i;
+	size_t		width;
+	size_t		precision;
+	short		dot;
+	int			base;
+	int			sharp;
+	int			plus;
+	int			minus;
+	int			space;
+	int			zero;
+	int			fd;
+	int			perc_pos;
+	int			unicode;
+	int			dog;
+	short		h;
+	short		hh;
+	short		j;
+	short		z;
+	long double	dbl;
+	double		flt;
+	short		is_ldouble;
+	uintmax_t	num;
+	short		formatted;
+	short		digits;
+}				t_struct;
+/*
+** buf.c
+*/
 void	ft_put_char_in_buff(t_struct *p, char c);
 char	*ft_put_char_at_start(char *str, char c);
-//select_conversion
+/*
+**select_conversion.c
+*/
 void	ft_convert_str(t_struct *p, va_list arg);
 void	ft_convert_di(t_struct *p, va_list arg);
 void	ft_select_conversion(t_struct *p, va_list arg);
 void	ft_convert_p(t_struct *p, va_list arg);
-//conversion ouxX
-void	ft_convert_ouxX(t_struct *p, va_list arg);
-//ft_printf
+/*
+**conversion_oux.c
+*/
+void	ft_convert_oux(t_struct *p, va_list arg);
+/*
+**ft_printf
+*/
 void	ft_parce_until_percent(t_struct *p);
 int		ft_printf(const char *format, ...);
-//length_flags
+/*
+**length_flags
+*/
 void	ft_h_hh(t_struct *p, va_list arg);
 void	ft_l_ll(t_struct *p, va_list arg);
 void	ft_L(t_struct *p, va_list arg);

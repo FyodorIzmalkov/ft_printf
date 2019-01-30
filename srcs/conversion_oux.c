@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversion_ouxX.c                                  :+:      :+:    :+:   */
+/*   conversion_oux.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 12:35:27 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 15:25:36 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 18:11:39 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_convert_ouxX(t_struct *p, va_list arg)
+void	ft_convert_oux(t_struct *p, va_list arg)
 {
 	char *temp;
 	char *temp_buf;
