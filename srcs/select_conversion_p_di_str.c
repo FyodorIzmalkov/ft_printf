@@ -6,12 +6,11 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 20:13:24 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 19:40:47 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 21:43:50 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 void	ft_convert_str(t_struct *p, va_list arg)
 {
@@ -47,7 +46,8 @@ void	ft_convert_di(t_struct *p, va_list arg)
 		ret = ft_make_string("-9223372036854775808");
 	else if (!(ret = ft_itoa(p->num)))
 		ft_malloc_error();
-	if (p->minus != 0 || p->plus != 0 || p->space != 0 || p->zero != 0 || p->dot != 0 || p->width != 0 || p->precision != 0)
+	if (p->minus != 0 || p->plus != 0 || p->space != 0 || p->zero != 0 ||
+			p->dot != 0 || p->width != 0 || p->precision != 0)
 		ret = ft_check_di_flags(ret, p);
 	if (!(p->buf = ft_strjoin(p->buf, ret)))
 		ft_malloc_error();
@@ -77,10 +77,10 @@ void	ft_select_conversion(t_struct *p, va_list arg)
 		ft_put_char_in_buff(p, '%');
 	if (p->str[p->i] == 'c' || p->str[p->i] == 'C')
 		ft_convert_c(p, arg);
-	if (p->str[p->i] == 'o' || p->str[p->i] == 'u' || p->str[p->i] == 'x' ||
-			p->str[p->i] == 'X' || p->str[p->i] == 'O')
+	if (p->str[p->i] == 'o' || p->str[p->i] == 'u' ||
+			p->str[p->i] == 'x' || p->str[p->i] == 'X' || p->str[p->i] == 'O')
 		ft_convert_oux(p, arg);
-	else if (p->str[p->i] == 'U')
+	if (p->str[p->i] == 'U')
 		ft_format_u(p, arg);
 	if (p->str[p->i] == 's' || p->str[p->i] == 'S')
 		ft_convert_str(p, arg);

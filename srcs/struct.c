@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 20:29:54 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 19:32:32 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 21:40:40 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_struct	*ft_make_struct(char *str)
 	return (p);
 }
 
-void	ft_clean_struct(t_struct *p)
+void		ft_clean_struct(t_struct *p)
 {
 	p->width = 0;
 	p->precision = 0;
@@ -44,8 +44,6 @@ void	ft_clean_struct(t_struct *p)
 	p->flt = 0;
 	p->j = 0;
 	p->z = 0;
-	p->h = 0;
-	p->hh = 0;
 	p->dog = 0;
 	p->formatted = 0;
 }

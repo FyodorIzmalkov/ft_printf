@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 17:13:14 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/26 15:10:07 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:10:32 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_fillstr(int len, char c)
 {
-	char *str;
-	int i;
+	char		*str;
+	int			i;
 
 	if (!(str = ft_strnew(len)))
 		ft_malloc_error();
@@ -27,9 +27,9 @@ char	*ft_fillstr(int len, char c)
 
 char	*ft_part_to_str(long long part, char *strint, int point)
 {
-	char *str;
-	char *tmp;
-	int part_len;
+	char		*str;
+	char		*tmp;
+	int			part_len;
 
 	if (!strint)
 		return (NULL);
@@ -63,9 +63,9 @@ long	ft_power(long long x, unsigned int y)
 
 char	*ft_ftoa(long double n, int point)
 {
-	long long ipart;
-	char *str;
-	char	*tmp;
+	long long	ipart;
+	char		*str;
+	char		*tmp;
 
 	ipart = (long long)n;
 	tmp = ft_llitoa(ipart);
@@ -84,11 +84,10 @@ char	*ft_ftoa(long double n, int point)
 	return (str);
 }
 
-
 void	ft_convert_f(t_struct *p, va_list arg)
 {
-	char *temp;
-	char *temp_buf;
+	char		*temp;
+	char		*temp_buf;
 
 	if (p->is_ldouble == 1)
 		return ;

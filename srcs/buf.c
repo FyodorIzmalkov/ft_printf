@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 20:51:30 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 19:06:39 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 22:49:27 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	ft_put_char_in_buff(t_struct *p, char c)
 
 char	*ft_put_char_at_start(char *str, char c)
 {
-	char *new;
-	size_t i;
-	
+	char	*new;
+	size_t	i;
+
 	if (str[0] == '-')
 		return (str);
 	i = ft_strlen(str);
@@ -47,7 +47,7 @@ char	*ft_put_char_at_start(char *str, char c)
 
 char	*ft_return_single(char *str)
 {
-	char *new;
+	char	*new;
 
 	new = NULL;
 	ft_strdel(&str);

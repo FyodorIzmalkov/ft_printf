@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:39:41 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 16:15:11 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 23:07:17 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_left_align_string(char *str, t_struct *p)
 {
-	size_t i;
-	char *new;
+	size_t	i;
+	char	*new;
 
 	i = ft_strlen(str);
 	if (!(new = ft_strnew(p->width)))
@@ -29,13 +29,11 @@ char	*ft_left_align_string(char *str, t_struct *p)
 
 char	*ft_fill_width(char *ret, t_struct *p)
 {
-	size_t i;
+	size_t	i;
 
 	i = ft_strlen(ret);
-	if (i < p->width || p->sharp == 1)
+	if (i < p->width)
 	{
-		if (p->sharp == 1)
-			ret = ft_check_sharp(ret, p);
 		if (p->minus == 1)
 		{
 			ret = ft_left_align_string(ret, p);
@@ -49,10 +47,10 @@ char	*ft_fill_width(char *ret, t_struct *p)
 
 char	*ft_check_sign_precision(char *str, t_struct *p)
 {
-	char *new;
-	size_t i;
-	size_t j;
-	char c;
+	char	*new;
+	size_t	i;
+	size_t	j;
+	char	c;
 
 	if (str[0] == '-' || str[0] == '+' || str[0] == ' ')
 	{
@@ -64,8 +62,7 @@ char	*ft_check_sign_precision(char *str, t_struct *p)
 			c = '+';
 		else
 			c = ' ';
-		if (!(new = ft_strnew(p->precision)))
-			ft_malloc_error();
+		new = ft_create_str(p->precision);
 		j = 0;
 		new[j++] = c;
 		while (j <= p->precision - i)
@@ -76,12 +73,12 @@ char	*ft_check_sign_precision(char *str, t_struct *p)
 	}
 	return (str);
 }
-			
+
 char	*ft_fill_it(char *ret, t_struct *p)
 {
-	size_t i;
-	size_t j;
-	char *new;
+	size_t	i;
+	size_t	j;
+	char	*new;
 
 	new = NULL;
 	if (p->width == 0)
@@ -101,7 +98,7 @@ char	*ft_check_sharp(char *ret, t_struct *p)
 {
 	if (p->str[p->i] == 'o')
 	{
-		ret = ft_check_sharp_o(ret, p);
+		ret = ft_check_sharp_o(ret);
 		return (ret);
 	}
 	else if (p->str[p->i] == 'x' || p->str[p->i] == 'X')

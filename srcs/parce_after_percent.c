@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 21:37:30 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 12:03:31 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:31:35 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_get_length_flags(t_struct *p, va_list arg)
 		else if (p->str[p->i] == 'L')
 		{
 			p->i++;
-			ft_L(p, arg);
+			ft_big_l(p, arg);
 		}
 	}
 }

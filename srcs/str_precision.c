@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:43:35 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/26 14:10:02 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:42:00 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ char	*ft_left_align_str(char *dst, char *src, size_t width, int left)
 char	*ft_check_str_precision(t_struct *p, char *str)
 {
 	char	*new;
+
 	if (p->dot != 0)
 	{
 		if (!(new = ft_strnew(p->precision)))

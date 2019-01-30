@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 16:03:46 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 18:32:35 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:38:41 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,26 @@ void	ft_h_hh(t_struct *p, va_list arg)
 	if (p->str[p->i] == 'o' || p->str[p->i] == 'u' || p->str[p->i] == 'x' ||
 			p->str[p->i] == 'X')
 	{
-		p->h = 1;
+		p->formatted = 1;
 		p->num = (unsigned short)va_arg(arg, unsigned int);
 	}
 	if (p->str[p->i] == 'h')
+		ft_hh(p, arg);
+}
+
+void	ft_hh(t_struct *p, va_list arg)
+{
+	p->i++;
+	if (p->str[p->i] == 'd' || p->str[p->i] == 'i')
 	{
-		p->i++;
-		if (p->str[p->i] == 'd' || p->str[p->i] == 'i')
-		{
-			p->num = (signed char)va_arg(arg, int);
-			p->formatted = 1;
-		}
-		else if (p->str[p->i] == 'o' || p->str[p->i] == 'u' ||
-				p->str[p->i] == 'x' || p->str[p->i] == 'X' || p->str[p->i] == 'U')
-		{
-			p->hh = 1;
-			p->num = (unsigned char)va_arg(arg, unsigned int);
-		}
+		p->num = (signed char)va_arg(arg, int);
+		p->formatted = 1;
+	}
+	else if (p->str[p->i] == 'o' || p->str[p->i] == 'u' ||
+			p->str[p->i] == 'x' || p->str[p->i] == 'X')
+	{
+		p->formatted = 1;
+		p->num = (unsigned char)va_arg(arg, unsigned int);
 	}
 }
 
@@ -69,7 +72,7 @@ void	ft_l_ll(t_struct *p, va_list arg)
 		p->unicode = 1;
 }
 
-void	ft_L(t_struct *p, va_list arg)
+void	ft_big_l(t_struct *p, va_list arg)
 {
 	char	*temp;
 	char	*temp_buf;

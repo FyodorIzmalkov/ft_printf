@@ -6,13 +6,13 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 18:40:48 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 12:01:43 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:08:01 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_check_pre_flag(char c)
+int		ft_check_pre_flag(char c)
 {
 	if (c == '#' || c == '0' || c == '+' || c == '-' || c == ' ')
 		return (1);

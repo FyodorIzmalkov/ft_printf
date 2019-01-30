@@ -6,14 +6,16 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 11:38:49 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 19:06:24 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 23:13:37 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int main(void)
-{	
-	ft_printf("%u\n", 4294967295);
+int	main(void)
+{
+	ft_printf("%#o\n", 42);
+	ft_printf("%#08x\n", 42);
+	printf("%#08x\n", 42);
 	return (0);
 }

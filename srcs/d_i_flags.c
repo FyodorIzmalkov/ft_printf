@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 19:39:31 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 16:36:36 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:45:56 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_fill_precision_di(char *ret, t_struct *p)
 {
-	char *new;
-	size_t i;
-	size_t j;
+	char	*new;
+	size_t	i;
+	size_t	j;
 
 	if (p->precision == 0 && p->num == 0)
 		return (ft_strnew(0));
@@ -61,7 +61,7 @@ char	*ft_check_di_flags(char *str, t_struct *p)
 		ret = ft_fill_precision_di(ret, p);
 	else if (p->dot == 1 && str != NULL)
 		ret = ft_fill_precision_di(str, p);
-	if	((p->minus == 1 || p->width != 0) && ret != NULL)
+	if ((p->minus == 1 || p->width != 0) && ret != NULL)
 		ret = ft_fill_width(ret, p);
 	else if ((p->minus == 1 || p->width != 0) && str != NULL)
 		ret = ft_fill_width(str, p);
@@ -70,13 +70,12 @@ char	*ft_check_di_flags(char *str, t_struct *p)
 
 char	*ft_fill_zeros_with_sign(char *ret, t_struct *p)
 {
-	size_t i;
-	size_t j;
-	char *tmp;
-	
+	size_t	i;
+	size_t	j;
+	char	*tmp;
+
 	i = ft_strlen(ret);
-	if (!(tmp = ft_strnew(p->width)))
-		ft_malloc_error();
+	tmp = ft_create_str(p->width);
 	if (ret[0] == '-' || ret[0] == '+')
 	{
 		tmp[0] = ret[0];

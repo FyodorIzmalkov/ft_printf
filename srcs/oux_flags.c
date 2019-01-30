@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 20:51:13 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 18:51:18 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 23:24:45 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 char	*ft_fill_precision_oux(char *ret, t_struct *p)
 {
-	char *new;
-	size_t i;
-	size_t j;
+	char	*new;
+	size_t	i;
+	size_t	j;
 
 	i = ft_strlen(ret);
-	if (p->precision == 0 && p->dot == 1 && (p->str[p->i] == 'x' || p->str[p->i] == 'X'))
+	if (p->precision == 0 && p->dot == 1 && (p->str[p->i] == 'x' ||
+				p->str[p->i] == 'X'))
 		return (ft_return_single(ret));
-	else if (p->precision == 0 && p->dot == 1 && p->str[p->i] == 'o' && p->sharp == 0)
+	else if (p->precision == 0 && p->dot == 1 && p->str[p->i] == 'o' &&
+			p->sharp == 0)
 		return (ft_return_single(ret));
 	if (i < p->precision)
 	{
@@ -42,8 +44,13 @@ char	*ft_check_oux_flags(char *str, t_struct *p)
 	char *ret;
 
 	ret = NULL;
-	if (p->sharp == 1 && p->num != 0 && (p->str[p->i] == 'x' || p->str[p->i] == 'X'))
+	if (p->sharp == 1 && p->num != 0 && (p->str[p->i] == 'x' ||
+				p->str[p->i] == 'X'))
 		p->width -= 2;
+	if (p->sharp == 1 && ret != NULL)
+		ret = ft_check_sharp(ret, p);
+	else if (p->sharp == 1)
+		ret = ft_check_sharp(str, p);
 	if (p->minus == 0 && p->zero != 0)
 	{
 		if (ret != NULL && p->width > ft_strlen(ret))
@@ -56,7 +63,7 @@ char	*ft_check_oux_flags(char *str, t_struct *p)
 		ret = ft_fill_precision_oux(ret, p);
 	else if (p->dot == 1 && str != NULL)
 		ret = ft_fill_precision_oux(str, p);
-	if	(p->width != 0 && ret != NULL)
+	if (p->width != 0 && ret != NULL)
 		ret = ft_fill_width(ret, p);
 	else if (p->width != 0 && str != NULL)
 		ret = ft_fill_width(str, p);
@@ -65,14 +72,24 @@ char	*ft_check_oux_flags(char *str, t_struct *p)
 
 char	*ft_fill_zeros_without_sign(char *ret, t_struct *p)
 {
-	size_t i;
-	size_t j;
-	char *tmp;
+	size_t	i;
+	size_t	j;
+	char	*tmp;
 
 	i = ft_strlen(ret);
-	if (!(tmp = ft_strnew(p->width)))
-		ft_malloc_error();
+	tmp = ft_create_str(p->width);
 	j = 0;
+	if (p->sharp == 1 && (p->str[p->i] == 'x' || p->str[p->i] == 'X'))
+	{
+		tmp[0] = '0';
+		tmp[1] = 'x';
+		j = 2;
+		while (j > p->width - i && p->precision == 0)
+			tmp[j++] = '0';
+		ft_strcpy(tmp + j, ret);
+		ft_strdel(&ret);
+		return (tmp);
+	}
 	while (j < p->width - i && p->precision == 0)
 		tmp[j++] = '0';
 	ft_strcpy(tmp + j, ret);
@@ -80,11 +97,11 @@ char	*ft_fill_zeros_without_sign(char *ret, t_struct *p)
 	return (tmp);
 }
 
-char	*ft_check_sharp_o(char *ret, t_struct *p)
+char	*ft_check_sharp_o(char *ret)
 {
-	char *new;
-	size_t z;
-	size_t j = p->width;
+	char	*new;
+	size_t	z;
+	size_t	j;
 
 	z = 0;
 	new = NULL;
@@ -107,7 +124,7 @@ char	*ft_check_sharp_x(char *ret, t_struct *p)
 			return (ret);
 		new = ft_put_char_at_start(ret, 'x');
 		new = ft_put_char_at_start(new, '0');
-		p->width +=2;
+		p->width += 2;
 	}
 	else if (p->num != 0 && p->str[p->i] == 'X')
 	{
@@ -115,7 +132,7 @@ char	*ft_check_sharp_x(char *ret, t_struct *p)
 			return (ret);
 		new = ft_put_char_at_start(ret, 'X');
 		new = ft_put_char_at_start(new, '0');
-		p->width +=2;
+		p->width += 2;
 	}
 	return (new = NULL ? ret : new);
 }

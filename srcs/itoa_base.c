@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:37:41 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 18:45:32 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:29:28 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,31 @@
 
 void	itoa_base(uintmax_t val, unsigned int base, char *ret, int *i)
 {
-	char base_str[] = "0123456789abcdef";
+	char *base_str;
 
+	base_str = ft_make_string("0123456789abcdef");
 	if (val >= base)
-		itoa_base(val/base, base, ret, i);
+		itoa_base(val / base, base, ret, i);
 	ret[(*i)++] = base_str[val % base];
+	ft_strdel(&base_str);
 }
 
 void	itoa_base1(uintmax_t val, unsigned int base, char *ret, int *i)
 {
-	char base_str[] = "0123456789ABCDEF";
+	char *base_str;
 
+	base_str = ft_make_string("0123456789ABCDEF");
 	if (val >= base)
-		itoa_base1(val/base, base, ret, i);
+		itoa_base1(val / base, base, ret, i);
 	ret[(*i)++] = base_str[val % base];
+	ft_strdel(&base_str);
 }
 
 char	*ft_left_align_p(char *ret, t_struct *p)
 {
 	char	*tmp;
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	j = 0;
 	if (ft_strlen(ret) < p->width)
@@ -59,9 +63,9 @@ char	*ft_left_align_p(char *ret, t_struct *p)
 
 char	*ft_itoa_base(uintmax_t value, unsigned int base, int big)
 {
-	int i;
-	uintmax_t val;
-	char *ret;
+	int			i;
+	uintmax_t	val;
+	char		*ret;
 
 	val = value;
 	i = 0;

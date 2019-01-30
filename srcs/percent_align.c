@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 11:01:01 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 13:39:21 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:41:34 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ char	*ft_align_percent(t_struct *p, char *str)
 
 char	*ft_percent_zero(t_struct *p, char *str)
 {
-	char *new;
-	size_t i;
-	size_t j;
+	char	*new;
+	size_t	i;
+	size_t	j;
 
 	i = ft_strlen(str);
 	if (p->width > i)

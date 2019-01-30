@@ -6,13 +6,13 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 12:29:55 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/26 13:31:58 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:41:12 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_digits(long long int n)
+size_t		ft_digits(long long int n)
 {
 	size_t	len;
 
@@ -30,9 +30,9 @@ size_t	ft_digits(long long int n)
 void		ft_inner_itoa(long long int n, size_t len, char *buf)
 {
 	char	*ptr;
-	char *str;
-	str = NULL;
+	char	*str;
 
+	str = NULL;
 	ptr = buf;
 	while (len)
 	{
@@ -42,7 +42,7 @@ void		ft_inner_itoa(long long int n, size_t len, char *buf)
 	}
 }
 
-char			*ft_llitoa(long long int n)
+char		*ft_llitoa(long long int n)
 {
 	char			*newstr;
 	size_t			len;
