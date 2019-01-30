@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 12:26:09 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/29 19:37:39 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 17:21:06 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@ void	ft_convert_c(t_struct *p, va_list arg)
 		new[0] = '^';
 		new[1] = '@';
 		p->dog += 1;
+		p->width++;
+		if (ft_check_str_flags(p, new) > 0)
+			return ;
 		p->buf = ft_strjoin(p->buf, new);
+		ft_strdel(&new);
 		return;
 	}
 	c = p->num;

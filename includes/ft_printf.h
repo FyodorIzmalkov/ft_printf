@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 16:17:04 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/30 17:10:56 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_L(t_struct *p, va_list arg);
 t_struct	*ft_make_struct(char *str);
 void	ft_clean_struct(t_struct *p);
 //flags_validation
-int	ft_check_pre_flag(char c);
+int		ft_check_pre_flag(char c);
 int		ft_check_dot_and_digits(char c);
 int		ft_check_length_flags(char c);
 //conversion_c
@@ -102,7 +102,7 @@ char	*ft_fillstr(int len, char c);
 //conv_j_z
 void	ft_conv_j(t_struct *p, va_list arg);
 void	ft_conv_z(t_struct *p, va_list arg);
-//precision_str.c
+//str_precision.c
 int		ft_check_str_flags(t_struct *p, char *str);
 char	*ft_left_align_str(char *dst, char *src, size_t width, int left);
 char	*ft_check_str_precision(t_struct *p, char *str);

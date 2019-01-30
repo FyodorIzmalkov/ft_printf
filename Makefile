@@ -6,7 +6,7 @@
 #    By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/18 17:45:36 by lsandor-          #+#    #+#              #
-#    Updated: 2019/01/30 16:17:06 by lsandor-         ###   ########.fr        #
+#    Updated: 2019/01/30 17:07:21 by lsandor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ SOURCES := \
 		itoa_base.c \
 		conversion_f.c \
 		conv_j_z.c \
-		precision_str.c\
+		str_precision.c\
 		d_i_flags.c\
 		string_align_functions.c\
 		oux_flags.c\
