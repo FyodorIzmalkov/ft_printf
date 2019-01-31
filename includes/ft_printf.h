@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 22:25:57 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 19:40:45 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,8 @@ char			*ft_percent_zero(t_struct *p, char *str);
 **check for ox
 */
 int				ft_check_ox(char *str);
+char			*ft_make_sharp(char *str, t_struct *p);
+char			*ft_sharp_zero_minus(char *str, t_struct *p);
 /*
 **ft_make_string.c
 */

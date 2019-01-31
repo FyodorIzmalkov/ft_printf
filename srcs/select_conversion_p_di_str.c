@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 20:13:24 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 21:43:50 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 19:46:04 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	ft_convert_di(t_struct *p, va_list arg)
 
 	if (p->j == 1 || p->z == 1)
 		return ;
+	if (p->num == 0 && p->str[p->i] == 'D')
+		p->num = (long)va_arg(arg, uintmax_t);
 	if (p->num == 0 && p->formatted == 0)
 		p->num = (int)va_arg(arg, uintmax_t);
 	temp = p->buf;
