@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:39:41 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 23:07:17 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 21:16:10 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char	*ft_fill_it(char *ret, t_struct *p)
 
 char	*ft_check_sharp(char *ret, t_struct *p)
 {
-	if (p->str[p->i] == 'o')
+	if (p->str[p->i] == 'o' || p->str[p->i] == 'O')
 	{
 		ret = ft_check_sharp_o(ret);
 		return (ret);

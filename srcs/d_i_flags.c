@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 19:39:31 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 20:45:56 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 21:43:20 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_fill_precision_di(char *ret, t_struct *p)
 
 	if (p->precision == 0 && p->num == 0)
 		return (ft_strnew(0));
-	if (ret[0] == '-' || ret[0] == '+' || ret[0] == ' ')
+	if ((ret[0] == '-' || ret[0] == '+' || ret[0] == ' ') && p->precision > 0)
 	{
 		ret = ft_check_sign_precision(ret, p);
 		return (ret);
@@ -42,30 +42,24 @@ char	*ft_fill_precision_di(char *ret, t_struct *p)
 
 char	*ft_check_di_flags(char *str, t_struct *p)
 {
-	char *ret;
-
-	ret = NULL;
 	if (p->plus != 0 && str[0] != '-')
-		ret = ft_put_char_at_start(str, '+');
+		str = ft_put_char_at_start(str, '+');
+	printf("0STR:%s\n",str);
 	if (p->space != 0 && p->plus == 0)
-		ret = ft_put_char_at_start(str, ' ');
+		str = ft_put_char_at_start(str, ' ');
+	printf("1STR:%s\n",str);
 	if (p->minus == 0 && p->zero != 0)
 	{
-		if (ret != NULL && p->width > ft_strlen(ret))
-			ret = ft_fill_zeros_with_sign(ret, p);
-		else if (str != NULL && (p->plus == 0 || str[0] == '-') &&
-				p->width > ft_strlen(str))
-			ret = ft_fill_zeros_with_sign(str, p);
+		if (p->width > ft_strlen(str))
+			str = ft_fill_zeros_with_sign(str, p);
+		else if ((p->plus == 0 || str[0] == '-') && p->width > ft_strlen(str))
+			str = ft_fill_zeros_with_sign(str, p);
 	}
-	if (p->dot == 1 && ret != NULL)
-		ret = ft_fill_precision_di(ret, p);
-	else if (p->dot == 1 && str != NULL)
-		ret = ft_fill_precision_di(str, p);
-	if ((p->minus == 1 || p->width != 0) && ret != NULL)
-		ret = ft_fill_width(ret, p);
-	else if ((p->minus == 1 || p->width != 0) && str != NULL)
-		ret = ft_fill_width(str, p);
-	return (ret == NULL ? str : ret);
+	if (p->dot == 1)
+		str = ft_fill_precision_di(str, p);
+	if (p->minus == 1 || p->width != 0)
+		str = ft_fill_width(str, p);
+	return (str);
 }
 
 char	*ft_fill_zeros_with_sign(char *ret, t_struct *p)
@@ -76,7 +70,7 @@ char	*ft_fill_zeros_with_sign(char *ret, t_struct *p)
 
 	i = ft_strlen(ret);
 	tmp = ft_create_str(p->width);
-	if (ret[0] == '-' || ret[0] == '+')
+	if (ret[0] == '-' || ret[0] == '+' || ret[0] == ' ')
 	{
 		tmp[0] = ret[0];
 		j = 1;
