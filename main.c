@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 11:38:49 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/31 23:10:57 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 23:42:51 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	ft_printf("%.2s\n", NULL);
-	printf("%.2s\n", NULL);
+	printf("Bla bla %#u\n", 0);
+	ft_printf("Bla bla %#u\n", 0);
 	return (0);
 }
