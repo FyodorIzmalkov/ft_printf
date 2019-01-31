@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 11:38:49 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/31 21:30:10 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 22:32:58 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	ft_printf("% 20.12ld et % 05D% 4.8hi !\n", 0x11ffaa147, 24, (short)-2345);
-	printf("% 20.12ld et % 05D% 4.8hi !\n", 0x11ffaa147, 24, (short)-2345);
+	ft_printf("\n%024hho et%#1.2o %0012.O\n", (unsigned char)12, 0, 123654789);
+	printf("\n%024hho et%#1.2o %0012.O\n", (unsigned char)12, 0, 123654789);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 19:39:31 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/31 21:43:20 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 22:15:18 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_fill_precision_di(char *ret, t_struct *p)
 	size_t	j;
 
 	if (p->precision == 0 && p->num == 0)
-		return (ft_strnew(0));
+		return (ft_check_for_returns(p));
 	if ((ret[0] == '-' || ret[0] == '+' || ret[0] == ' ') && p->precision > 0)
 	{
 		ret = ft_check_sign_precision(ret, p);
@@ -44,10 +44,8 @@ char	*ft_check_di_flags(char *str, t_struct *p)
 {
 	if (p->plus != 0 && str[0] != '-')
 		str = ft_put_char_at_start(str, '+');
-	printf("0STR:%s\n",str);
 	if (p->space != 0 && p->plus == 0)
 		str = ft_put_char_at_start(str, ' ');
-	printf("1STR:%s\n",str);
 	if (p->minus == 0 && p->zero != 0)
 	{
 		if (p->width > ft_strlen(str))

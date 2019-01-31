@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 18:13:18 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 23:19:26 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 22:14:52 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,23 @@ char	*ft_create_str(size_t len)
 	if (!(new = ft_strnew(len)))
 		ft_malloc_error();
 	return (new);
+}
+
+char	*ft_return_sign(size_t len, char c)
+{
+	char *new;
+
+	new = ft_create_str(len);
+	new[0] = c;
+	return (new);
+}
+
+char	*ft_check_for_returns(t_struct *p)
+{
+	if (p->space == 1)
+			return (ft_return_sign(1, ' '));
+		else if (p->plus == 1)
+			return (ft_return_sign(1, '+'));
+		else
+			return (ft_strnew(0));
 }
