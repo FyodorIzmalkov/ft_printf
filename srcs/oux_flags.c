@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 20:51:13 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/31 22:28:17 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 22:48:19 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_check_oux_flags(char *str, t_struct *p)
 		return (ft_check_for_returns(p));
 	if (p->sharp == 1)
 		str = ft_check_sharp(str, p);
-	if (p->minus == 0 && p->zero != 0)
+	if (p->minus == 0 && p->zero != 0 && p->dot == 0)
 	{
 		if (p->width > ft_strlen(str))
 			str = ft_fill_zeros_without_sign(str, p);

@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 15:21:01 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/31 19:40:14 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 22:48:07 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_make_sharp(char *str, t_struct *p)
 
 	len = ft_strlen(str);
 	i = 0;
-	if (p->zero == 1 || p->minus == 1)
+	if ((p->zero == 1 || p->minus == 1) && p->dot == 0)
 		return (ft_sharp_zero_minus(str, p));
 	new = ft_create_str(p->width);
 	while (i < p->width - len - 2)
