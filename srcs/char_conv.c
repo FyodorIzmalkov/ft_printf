@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 12:26:09 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 20:07:04 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 22:57:44 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,6 @@ void	ft_str_strdel(char **str1, char **str2)
 	}
 }
 
-void	ft_add_dog(t_struct *p)
-{
-	char *new;
-
-	if (!(new = ft_strnew(2)))
-		ft_malloc_error();
-	new[0] = '^';
-	new[1] = '@';
-	p->dog++;
-	p->width += 1;
-	if (ft_check_str_flags(p, new) > 0)
-		return ;
-	if (!(p->buf = ft_strjoin(p->buf, new)))
-		ft_malloc_error();
-	free(new);
-	new = NULL;
-	return ;
-}
-
 void	ft_convert_c(t_struct *p, va_list arg)
 {
 	char	c;
@@ -52,8 +33,6 @@ void	ft_convert_c(t_struct *p, va_list arg)
 
 	if (p->num == 0)
 		p->num = (unsigned char)va_arg(arg, uintmax_t);
-	if (p->num == 0)
-		return (ft_add_dog(p));
 	c = p->num;
 	if (p->width > 1)
 	{

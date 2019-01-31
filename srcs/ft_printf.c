@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:29:34 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/30 21:26:02 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/01/31 22:58:03 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,5 @@ int		ft_printf(const char *format, ...)
 	res = ft_strlen(p->buf);
 	free(p->buf);
 	free(p);
-	if (p->dog != 0)
-		return (res - p->dog);
 	return (res);
 }
