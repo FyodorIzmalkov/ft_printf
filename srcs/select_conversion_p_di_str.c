@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 20:13:24 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/31 23:11:58 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 13:01:19 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	ft_convert_p(t_struct *p, va_list arg)
 		ft_malloc_error();
 	temp = ft_left_align_p(temp, p);
 	if (!(p->buf = ft_strjoin(p->buf, temp)))
+	
 		ft_malloc_error();
 	ft_strdel(&temp);
 	ft_strdel(&temp_buf);
@@ -74,21 +75,21 @@ void	ft_convert_p(t_struct *p, va_list arg)
 
 void	ft_select_conversion(t_struct *p, va_list arg)
 {
-	if (p->str[p->i] == '%')
-		ft_put_char_in_buff(p, '%');
-	if (p->str[p->i] == 'c' || p->str[p->i] == 'C')
-		ft_convert_c(p, arg);
-	if (p->str[p->i] == 'o' || p->str[p->i] == 'u' ||
-			p->str[p->i] == 'x' || p->str[p->i] == 'X' || p->str[p->i] == 'O')
-		ft_convert_oux(p, arg);
-	if (p->str[p->i] == 'U')
-		ft_format_u(p, arg);
-	if (p->str[p->i] == 's' || p->str[p->i] == 'S')
-		ft_convert_str(p, arg);
-	if (p->str[p->i] == 'd' || p->str[p->i] == 'i' || p->str[p->i] == 'D')
-		ft_convert_di(p, arg);
-	if (p->str[p->i] == 'p')
-		ft_convert_p(p, arg);
-	if (p->str[p->i] == 'f')
-		ft_convert_f(p, arg);
+		if (p->str[p->i] == '%')
+			ft_put_char_in_buff(p, '%');
+		if (p->str[p->i] == 'c' || p->str[p->i] == 'C')
+			ft_convert_c(p, arg);
+		if (p->str[p->i] == 'o' || p->str[p->i] == 'u' ||
+				p->str[p->i] == 'x' || p->str[p->i] == 'X' || p->str[p->i] == 'O')
+			ft_convert_oux(p, arg);
+		if (p->str[p->i] == 'U')
+			ft_format_u(p, arg);
+		if (p->str[p->i] == 's' || p->str[p->i] == 'S')
+			ft_convert_str(p, arg);
+		if (p->str[p->i] == 'd' || p->str[p->i] == 'i' || p->str[p->i] == 'D')
+			ft_convert_di(p, arg);
+		if (p->str[p->i] == 'p')
+			ft_convert_p(p, arg);
+		if (p->str[p->i] == 'f')
+			ft_convert_f(p, arg);
 }

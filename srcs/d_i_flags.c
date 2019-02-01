@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 19:39:31 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/31 23:37:57 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 14:10:58 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_fill_precision_di(char *ret, t_struct *p)
 
 	if (p->precision == 0 && p->num == 0)
 		return (ft_check_for_returns(p));
-	if ((ret[0] == '-' || ret[0] == '+' || ret[0] == ' ') && p->precision > ft_strlen(ret))
+	if (ret[0] == '-' || ret[0] == '+')
 	{
 		ret = ft_check_sign_precision(ret, p);
 		return (ret);
@@ -44,8 +44,6 @@ char	*ft_check_di_flags(char *str, t_struct *p)
 {
 	if (p->plus != 0 && str[0] != '-')
 		str = ft_put_char_at_start(str, '+');
-	if (p->space != 0 && p->plus == 0)
-		str = ft_put_char_at_start(str, ' ');
 	if (p->minus == 0 && p->zero != 0)
 	{
 		if (p->width > ft_strlen(str))
@@ -57,6 +55,8 @@ char	*ft_check_di_flags(char *str, t_struct *p)
 		str = ft_fill_precision_di(str, p);
 	if (p->minus == 1 || p->width != 0)
 		str = ft_fill_width(str, p);
+	if (p->space != 0 && p->plus == 0 && p->width < ft_strlen(str))
+		str = ft_put_char_at_start(str, ' ');
 	return (str);
 }
 

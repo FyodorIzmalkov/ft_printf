@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 20:51:13 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/02/01 12:14:15 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 13:51:49 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_fill_precision_oux(char *ret, t_struct *p)
 
 char	*ft_check_oux_flags(char *str, t_struct *p)
 {
-	if (p->num == 0 && p->dot == 1 && p->precision == 0)
+	if (p->num == 0 && p->dot == 1 && p->precision == 0 && p->width == 0 && p->sharp == 0)
 		return (ft_check_for_returns(p));
 	if (p->sharp == 1)
 		str = ft_check_sharp(str, p);

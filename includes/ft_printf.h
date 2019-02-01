@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/31 22:58:21 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 13:50:23 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ char			*ft_left_align_c(char *dst, char c, int left, t_struct *p);
 */
 void			ft_malloc_error(void);
 void			ft_arg_error(void);
+int				ft_check_conv(char c);
 /*
 **ft_set
 */

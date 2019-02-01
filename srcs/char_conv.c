@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 12:26:09 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/31 22:57:44 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 13:12:40 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_convert_c(t_struct *p, va_list arg)
 	char	*new;
 
 	if (p->num == 0)
-		p->num = (unsigned char)va_arg(arg, uintmax_t);
+		p->num = (unsigned char)va_arg(arg, int);
 	c = p->num;
 	if (p->width > 1)
 	{
