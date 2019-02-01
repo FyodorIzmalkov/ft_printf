@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 20:13:24 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/02/01 16:08:25 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 18:02:46 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_convert_str(t_struct *p, va_list arg)
 	char	*temp;
 
 	arg_str = va_arg(arg, char*);
-	if (arg_str == NULL)
+	if (arg_str == NULL || ft_strcmp(arg_str, "(null)") == 0)
 		arg_str = ft_make_string("(null)");
 	arg_str = ft_check_str_precision(p, arg_str);
 	if (ft_check_str_flags(p, arg_str) > 0)
@@ -66,8 +66,11 @@ void	ft_convert_p(t_struct *p, va_list arg)
 	if (!(temp = ft_itoa_base(p->num, 16, 2)))
 		ft_malloc_error();
 	temp = ft_left_align_p(temp, p);
-	if (!(p->buf = ft_strjoin(p->buf, temp)))
-	
+	if (p->num == 0 && p->dot == 1 && p->precision == 0)
+		temp[2] = '\0';
+	if (p->precision > 0)
+		temp = ft_fill_precision_p(p, temp);
+	if (!(p->buf = ft_strjoin(p->buf, temp)))	
 		ft_malloc_error();
 	ft_strdel(&temp);
 	ft_strdel(&temp_buf);
@@ -90,6 +93,6 @@ void	ft_select_conversion(t_struct *p, va_list arg)
 			ft_convert_di(p, arg);
 		if (p->str[p->i] == 'p')
 			ft_convert_p(p, arg);
-		if (p->str[p->i] == 'f')
+		if (p->str[p->i] == 'f' || p->str[p->i] == 'F')
 			ft_convert_f(p, arg);
 }

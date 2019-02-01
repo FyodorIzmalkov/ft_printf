@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/02/01 14:47:06 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 16:50:37 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,6 +189,7 @@ char			*ft_make_string(const char *str);
 void			ft_make_null(t_struct *p, char *str);
 char			*ft_return_sign(size_t len, char c);
 char			*ft_check_for_returns(t_struct *p);
+char			*ft_fill_precision_p(t_struct *p, char *str);
 /*
 **ft_format_U.c
 */
