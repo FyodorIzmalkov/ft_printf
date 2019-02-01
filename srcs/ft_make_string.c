@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 18:13:18 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/02/01 17:01:58 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 18:10:23 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,17 @@ char	*ft_return_sign(size_t len, char c)
 char	*ft_check_for_returns(t_struct *p)
 {
 	if (p->space == 1)
-			return (ft_return_sign(1, ' '));
-		else if (p->plus == 1)
-			return (ft_return_sign(1, '+'));
-		else
-			return (ft_strnew(0));
+		return (ft_return_sign(1, ' '));
+	else if (p->plus == 1)
+		return (ft_return_sign(1, '+'));
+	else
+		return (ft_strnew(0));
 }
 
 char	*ft_fill_precision_p(t_struct *p, char *str)
 {
-	size_t i;
-	char *new;
+	size_t	i;
+	char	*new;
 
 	i = 0;
 	if (str)

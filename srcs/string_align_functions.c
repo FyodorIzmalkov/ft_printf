@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:39:41 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/02/01 16:29:44 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 18:35:19 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*ft_check_sign_precision(char *str, t_struct *p)
 		i--;
 		if (str[0] == '-')
 			c = '-';
-		else 
+		else
 			c = '+';
 		new = ft_create_str(p->precision);
 		j = 0;

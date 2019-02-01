@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:25:53 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/02/01 16:50:37 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 18:30:31 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ typedef struct	s_struct
 	int			perc_pos;
 	int			unicode;
 	int			dog;
-	short		j;
-	short		z;
 	long double	dbl;
 	double		flt;
 	short		is_ldouble;
@@ -64,6 +62,7 @@ void			ft_convert_p(t_struct *p, va_list arg);
 **conversion_oux.c
 */
 void			ft_convert_oux(t_struct *p, va_list arg);
+int				ft_any_flag(t_struct *p);
 /*
 **ft_printf
 */

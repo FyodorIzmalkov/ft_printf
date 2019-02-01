@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 19:39:31 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/02/01 16:29:30 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 18:32:01 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ char	*ft_fill_precision_di(char *ret, t_struct *p)
 		ret[0] = '0';
 	if (i < p->precision)
 	{
-		if (!(new = ft_strnew(p->precision)))
-			ft_malloc_error();
+		new = ft_create_str(p->precision);
 		j = 0;
 		while (j < p->precision - i)
 			new[j++] = '0';
