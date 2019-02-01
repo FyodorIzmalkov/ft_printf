@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 19:39:31 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/02/01 16:01:18 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 16:29:30 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_fill_precision_di(char *ret, t_struct *p)
 
 	if (p->precision == 0 && p->num == 0)
 		return (ft_check_for_returns(p));
-	if (ret[0] == '-' || ret[0] == '+')
+	if ((ret[0] == '-' || ret[0] == '+') && p->precision >= ft_strlen(ret))
 	{
 		ret = ft_check_sign_precision(ret, p);
 		return (ret);
