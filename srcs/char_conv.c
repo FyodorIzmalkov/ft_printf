@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 12:26:09 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/02/01 13:12:40 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 15:16:07 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ void	ft_convert_c(t_struct *p, va_list arg)
 	char	c;
 	char	*new;
 
-	if (p->num == 0)
-		p->num = (unsigned char)va_arg(arg, int);
-	c = p->num;
+	p->num = (unsigned char)va_arg(arg, int);
+	c = (unsigned char)p->num;
 	if (p->width > 1)
 	{
 		if (!(new = ft_strnew(p->width)))
@@ -48,7 +47,6 @@ void	ft_convert_c(t_struct *p, va_list arg)
 	}
 	ft_put_char_in_buff(p, c);
 }
-
 char	*ft_left_align_c(char *dst, char c, int left, t_struct *p)
 {
 	size_t	j;

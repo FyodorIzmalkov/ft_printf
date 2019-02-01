@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 19:39:31 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/02/01 14:10:58 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 16:01:18 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char	*ft_fill_precision_di(char *ret, t_struct *p)
 		return (ret);
 	}
 	i = ft_strlen(ret);
+	if (ret[0] == ' ')
+		ret[0] = '0';
 	if (i < p->precision)
 	{
 		if (!(new = ft_strnew(p->precision)))
@@ -42,6 +44,8 @@ char	*ft_fill_precision_di(char *ret, t_struct *p)
 
 char	*ft_check_di_flags(char *str, t_struct *p)
 {
+	if (p->space != 0 && p->plus == 0)
+		str = ft_put_char_at_start(str, ' ');
 	if (p->plus != 0 && str[0] != '-')
 		str = ft_put_char_at_start(str, '+');
 	if (p->minus == 0 && p->zero != 0)
@@ -55,8 +59,6 @@ char	*ft_check_di_flags(char *str, t_struct *p)
 		str = ft_fill_precision_di(str, p);
 	if (p->minus == 1 || p->width != 0)
 		str = ft_fill_width(str, p);
-	if (p->space != 0 && p->plus == 0 && p->width < ft_strlen(str))
-		str = ft_put_char_at_start(str, ' ');
 	return (str);
 }
 
