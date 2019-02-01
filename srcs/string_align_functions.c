@@ -6,7 +6,7 @@
 /*   By: lsandor- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:39:41 by lsandor-          #+#    #+#             */
-/*   Updated: 2019/01/31 21:16:10 by lsandor-         ###   ########.fr       */
+/*   Updated: 2019/02/01 12:13:58 by lsandor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ char	*ft_fill_width(char *ret, t_struct *p)
 {
 	size_t	i;
 
-	i = ft_strlen(ret);
-	if (i < p->width)
+	i = 0;
+	if (ret)
+		i = ft_strlen(ret);
+	if (i < p->width && ret)
 	{
 		if (p->minus == 1)
 		{
